@@ -24,7 +24,7 @@ PAGE="""\
 
 <html>
 	<head>
-		<title>Susan Cam</title>
+		<title>Gui Cam</title>
 	</head>
 	<body background="https://www.tortoisetown.com/wp-content/uploads/2017/07/tigercrestedgeckoforsale.jpg.webp">
 		<!-- Can I change the scale? -->
