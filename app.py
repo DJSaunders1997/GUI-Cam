@@ -7,13 +7,18 @@ from flask import Flask, render_template, Response, url_for
 #from camera import Camera  #test camera
 #from windows_camera import Camera   # windows webcam camera
 from camera_pi import Camera
+from humidity import getTempHum
+
 
 app = Flask(__name__)
 
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html') # Pass parameters here  # Pass video object here.
+
+    temp_humidity = getTempHum()    # Get it from sensor once per load
+
+    return render_template('index.html', *temp_humidity) # Pass parameters here  # Pass video object here.
 
 def gen(camera):
     while True:
@@ -22,6 +27,10 @@ def gen(camera):
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 @app.route('/video_feed')
+def video_feed():
+    return Response(gen(Camera()), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/temp_humid')
 def video_feed():
     return Response(gen(Camera()), mimetype='multipart/x-mixed-replace; boundary=frame')
 
