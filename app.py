@@ -1,7 +1,7 @@
 #https://flask.palletsprojects.com/en/1.1.x/quickstart/
 # https://kubernetes.io/blog/2019/07/23/get-started-with-kubernetes-using-python/
 
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, url_for
 from camera import Camera
 app = Flask(__name__)
 
