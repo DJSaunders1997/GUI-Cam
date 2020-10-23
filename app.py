@@ -1,8 +1,13 @@
+# https://blog.miguelgrinberg.com/post/video-streaming-with-flask
 #https://flask.palletsprojects.com/en/1.1.x/quickstart/
 # https://kubernetes.io/blog/2019/07/23/get-started-with-kubernetes-using-python/
 
+
 from flask import Flask, render_template, Response, url_for
-from camera import Camera
+#from camera import Camera  #test camera
+#from windows_camera import Camera   # windows webcam camera
+from camera_pi import Camera
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -10,7 +15,6 @@ app = Flask(__name__)
 def index():
     return render_template('index.html') # Pass parameters here  # Pass video object here.
 
-# https://blog.miguelgrinberg.com/post/video-streaming-with-flask
 def gen(camera):
     while True:
         frame = camera.get_frame()
