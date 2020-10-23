@@ -6,9 +6,9 @@
 
 <body style="background-color:#474747;">
 	<h1>GUI Cam V2</h1>
-	<div>Say hi to everybody's favourite crested gecko!</div>
-	<div>Temperature = {{temp_humidity[0]°C}} </div>
-	<div>temp_humidity = {{temp_humidity[1]%}} </div>
+	<h2>Say hi to everybody's favourite crested gecko!</h2>
+	<div>Temperature = {{ temperature }}°C </div>
+	<div>Humidity = {{ humidity }}% </div>
 
 	<img src="{{ url_for('video_feed') }}">
 </body>
