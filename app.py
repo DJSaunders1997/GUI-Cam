@@ -4,8 +4,9 @@
 
 
 from flask import Flask, render_template, Response, url_for
-from pi_models.camera_pi import Camera
+from pi_models.pi_camera import Camera
 from pi_models.temp_humid_sensor import getTempHum
+from pi_models.pi_cpu_temp import getCpuTemp
 
 
 app = Flask(__name__)
