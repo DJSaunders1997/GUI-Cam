@@ -11,7 +11,7 @@
 		<div class="card-header text-white">
 
 			<button class="btn btn-secondary btn-nav-gecko" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<img class="gecko-icon" src="https://www.flaticon.com/svg/static/icons/svg/47/47371.svg"></img>
+				<img width="40" height="40" class="gecko-icon" src="https://www.flaticon.com/svg/static/icons/svg/47/47371.svg"></img>
 
 				<div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
 					<a class="dropdown-item text-white" href="{{ url_for('old') }}">Legacy website</a>
@@ -45,11 +45,11 @@
 						<tbody>
 						  <tr>
 							<td>Temperature</td>
-							<td>18.3°C</td>
+							<td>{{ temperature }}°C</td>
 						  </tr>
 						  <tr>
 							<td>Humidity</td>
-							<td>69.3%</td>
+							<td>{{ humidity }}%</td>
 						  </tr>
 						  <tr>
 							<td>CPU Temperature</td>
@@ -81,7 +81,6 @@
 
 	.gecko-icon {
 		left:0%;
-		height:40px;
 	}
 
 	.header-icon {
