@@ -16,8 +16,9 @@ app = Flask(__name__)
 def index():
 
     temp_humidity = getTempHum()    # Get it from sensor once per load
+    cpu_temp = getCpuTemp()
 
-    return render_template('index.html', temperature=temp_humidity[0], humidity=temp_humidity[1]) # Pass parameters here  # Pass video object here.
+    return render_template('index.html', temperature=temp_humidity[0], humidity=temp_humidity[1], cpu_temp=cpu_temp) # Pass parameters here  # Pass video object here.
 
 def gen(camera):
     while True:
@@ -32,7 +33,7 @@ def video_feed():
 
 @app.route('/old')
 def old():
-    return render_template('old.html') # Pass parameters here  # Pass video object here.
+    return render_template('old.html')
 
 
 @app.route("/who")
