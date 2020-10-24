@@ -16,22 +16,50 @@
 				<div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
 					<a class="dropdown-item text-white" href="{{ url_for('old') }}">Legacy website</a>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item disabled text-muted">A Flask website by David Saunders</a>
+					<a class="dropdown-item disabled text-muted">A Flask website by David and Jacques Saunders</a>
 				</div>
 			</button>
 
 			<h1 class="page-title" >GUI Cam V2</h1>
 		</div>
 
-		<div class="card text-white bg-dark gui-cam-container">
-			<div class="card-header">
-				<img width="20" height="20" class="camera-icon" src="https://www.flaticon.com/svg/static/icons/svg/1160/1160041.svg"></img>
-				<b>GUI Live stream</b>
+		<div class="d-flex flex-row">
+			<div class="card text-white bg-dark stats-card">
+				<div class="card-header">
+					<img width="25" height="25" class="header-icon" src="https://www.flaticon.com/svg/static/icons/svg/808/808602.svg"></img>
+					<b>Stats</b>
+				</div>
+				<div class="card-body">
+					<table class="table table-dark stats-table">
+						<tbody>
+						  <tr>
+							<td>Temperature</td>
+							<td>18.3°C</td>
+						  </tr>
+						  <tr>
+							<td>Humidity</td>
+							<td>69.3%</td>
+						  </tr>
+						  <tr>
+							<td>CPU Temperature</td>
+							<td>60°C</td>
+						  </tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
-			<div class="card-body">
-				<p class="card-text">Say hi to everybody's favourite crested gecko!</p>
-				<img class="gui-cam-stream" src="http://81.105.156.15:6969/video_feed"></img>
+
+			<div class="card text-white bg-dark gui-cam-card">
+				<div class="card-header">
+					<img width="20" height="20" class="header-icon" src="https://www.flaticon.com/svg/static/icons/svg/1160/1160041.svg"></img>
+					<b>GUI Live stream</b>
+				</div>
+				<div class="card-body">
+					<p class="card-text">Say hi to everybody's favourite crested gecko!</p>
+					<img class="gui-cam-stream" src="http://81.105.156.15:6969/video_feed"></img>
+				</div>
 			</div>
+
 		</div>
 	</body>
 
@@ -56,7 +84,7 @@
 		height:40px;
 	}
 
-	.camera-icon {
+	.header-icon {
 		filter: invert(100%);
 	}
 
@@ -72,11 +100,10 @@
 		background-color:rgba(0,0,0,.2);
 	}
 
-	.gui-cam-container {
+	.gui-cam-card {
 		width:70%;
-		height:85%;
-		margin:auto;
-		margin-top:1%;
+		height: auto;
+		margin: 10px;
 		text-align: center;
 	}
 
@@ -85,6 +112,17 @@
 		display:block;
 		height:90%;
     	max-height: 600px;
+	}
+
+	.stats-card {
+		margin: 5px;
+	}
+
+	.stats-table {
+		text-align: center;
+		margin: auto;
+    	margin-top: 10px;
+    	width: 50%;
 	}
 	
 </style>
