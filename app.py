@@ -4,10 +4,8 @@
 
 
 from flask import Flask, render_template, Response, url_for
-#from camera import Camera  #test camera
-#from windows_camera import Camera   # windows webcam camera
-from camera_pi import Camera
-from temp_humid_sensor import getTempHum
+from pi_models.camera_pi import Camera
+from pi_models.temp_humid_sensor import getTempHum
 
 
 app = Flask(__name__)
@@ -26,6 +24,7 @@ def gen(camera):
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
+# User can go to /video_feed for stream, or just look at main page.
 @app.route('/video_feed')
 def video_feed():
     return Response(gen(Camera()), mimetype='multipart/x-mixed-replace; boundary=frame')
