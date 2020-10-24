@@ -1,0 +1,23 @@
+<html>
+
+<head>
+	<title>GUI Cam V2</title>
+</head>
+
+<body style="background-color:#474747;">
+	<h1>GUI Cam V2</h1>
+	<h2>Say hi to everybody's favourite crested gecko!</h2>
+	<div>Temperature = {{ temperature }}°C </div>
+	<div>Humidity = {{ humidity }}% </div>
+
+	<img src="{{ url_for('video_feed') }}">
+</body>
+
+<div style="position: absolute; bottom: 5px;">
+	<hr>
+	A Flask website by David Saunders
+	<hr>
+	<a href="{{ url_for('old') }}">Legacy website</a>
+</div>
+
+</html>
