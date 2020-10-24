@@ -1,23 +1,90 @@
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 <html>
+	<head>
+		<title>GUI Cam V2</title>
+	</head>
 
-<head>
-	<title>GUI Cam V2</title>
-</head>
+	<body class="page-background">
+		<div class="card-header text-white">
 
-<body style="background-color:#474747;">
-	<h1>GUI Cam V2</h1>
-	<h2>Say hi to everybody's favourite crested gecko!</h2>
-	<div>Temperature = {{ temperature }}°C </div>
-	<div>Humidity = {{ humidity }}% </div>
+			<button class="btn btn-secondary btn-nav-gecko" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<img class="gecko-icon" src="https://www.flaticon.com/svg/static/icons/svg/47/47371.svg"></img>
 
-	<img src="{{ url_for('video_feed') }}">
-</body>
+				<div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item text-white" href="{{ url_for('old') }}">Legacy website</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item disabled text-muted">A Flask website by David Saunders</a>
+				</div>
+			</button>
 
-<div style="position: absolute; bottom: 5px;">
-	<hr>
-	A Flask website by David Saunders
-	<hr>
-	<a href="{{ url_for('old') }}">Legacy website</a>
-</div>
+			<h1 class="page-title" >GUI Cam V2</h1>
+		</div>
+
+		<div class="card text-white bg-dark gui-cam-container">
+			<div class="card-header">
+				<img width="20" height="20" class="camera-icon" src="https://www.flaticon.com/svg/static/icons/svg/1160/1160041.svg"></img>
+				<b>GUI Live stream</b>
+			</div>
+			<div class="card-body">
+				<p class="card-text">Say hi to everybody's favourite crested gecko!</p>
+				<img class="gui-cam-stream" src="http://81.105.156.15:6969/video_feed"></img>
+			</div>
+		</div>
+	</body>
 
 </html>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+
+	.btn-nav-gecko {
+		margin-top: 3px;
+		height:45px; 
+		width:50px; 
+		padding-top: 2px;
+		padding-left: 5px;
+		position: absolute;
+		left: 20px;
+	}
+
+	.gecko-icon {
+		left:0%;
+		height:40px;
+	}
+
+	.camera-icon {
+		filter: invert(100%);
+	}
+
+	.page-title {
+		margin-left: 70px;
+	}
+
+	.page-background {
+		background-color:#222;
+	}
+
+	.card-header {
+		background-color:rgba(0,0,0,.2);
+	}
+
+	.gui-cam-container {
+		width:70%;
+		height:85%;
+		margin:auto;
+		margin-top:1%;
+		text-align: center;
+	}
+
+	.gui-cam-stream {
+		margin:auto;
+		display:block;
+		height:90%;
+    	max-height: 600px;
+	}
+	
+</style>
