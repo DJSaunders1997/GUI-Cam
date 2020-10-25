@@ -38,12 +38,14 @@ def old():
 
 @app.route('/<state>/<pin>')
 def LED_state(state, pin):
+    #23 is green
+    #24 is red
+    change_led_state(int(state), int(pin)) # Function requires ints not strings
 
-    state = int(state)
-    pin = int(pin)
-    change_led_state(state,pin)
-
-    return f"led {pin} changed to {state}"
+    # Same code as index as we don't want to change this
+    temp_humidity = getTempHum()    # Get it from sensor once per load
+    cpu_temp = getCpuTemp()
+    return render_template('index.html', temperature=temp_humidity[0], humidity=temp_humidity[1], cpu_temp=cpu_temp) # Pass parameters here  # Pass video object here.
 
 @app.route("/who")
 def hello():

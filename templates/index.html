@@ -4,13 +4,18 @@
 	<title>GUI Cam V2</title>
 </head>
 
-<body style="background-color:#474747;">
+<body style="background-color:skyblue;">
 	<h1>GUI Cam V2</h1>
 	<h2>Say hi to everybody's favourite crested gecko!</h2>
 	<div>Temperature = {{ temperature }}°C </div>
 	<div>Humidity = {{ humidity }}% </div>
 	<div>CPU Temperature = {{ cpu_temp }}°C </div>
-
+	<hr>
+	<a href="{{ url_for('LED_state', state=1, pin=23) }}">Green LED ON</a>
+	<a href="{{ url_for('LED_state', state=0, pin=23) }}">Green LED OFF</a>
+	<a href="{{ url_for('LED_state', state=1, pin=24) }}">Red LED ON</a>
+	<a href="{{ url_for('LED_state', state=0, pin=24) }}">Red LED OFF</a>
+	<hr>
 	<img src="{{ url_for('video_feed') }}">
 </body>
 
