@@ -42,10 +42,7 @@ def LED_state(state, pin):
     #24 is red
     change_led_state(int(state), int(pin)) # Function requires ints not strings
 
-    # Same code as index as we don't want to change this
-    temp_humidity = getTempHum()    # Get it from sensor once per load
-    cpu_temp = getCpuTemp()
-    return render_template('index.html', temperature=temp_humidity[0], humidity=temp_humidity[1], cpu_temp=cpu_temp) # Pass parameters here  # Pass video object here.
+    return ('LED state changed')
 
 #background process happening without any refreshing
 @app.route('/background_process_test')
@@ -53,7 +50,8 @@ def background_process_test():
     print ("Hello")
     return ("nothing")
 
-#turn on LED
+## CONTROLLING LED FUNCTIONS
+#turn on red LED
 @app.route('/turn_on_red_led')
 def turn_on_red_led():
     print('function turn_on_red_led has been called')
@@ -61,7 +59,37 @@ def turn_on_red_led():
     pin=24
 
     change_led_state(int(state), int(pin))
+    return ("Red LED should be on")
+
+#turn on green LED
+@app.route('/turn_on_green_led')
+def turn_on_green_led():
+    print('function turn_on_green_led has been called')
+    state=1
+    pin=23
+
+    change_led_state(int(state), int(pin))
     return ("LED should be on")
+
+#turn off red LED
+@app.route('/turn_off_red_led')
+def turn_off_red_led():
+    print('function turn_off_red_led has been called')
+    state=0
+    pin=24
+
+    change_led_state(int(state), int(pin))
+    return ("Red LED should be off")
+
+#turn of green LED
+@app.route('/turn_off_green_led')
+def turn_off_green_led():
+    print('function turn_off_green_led has been called')
+    state=0
+    pin=23
+
+    change_led_state(int(state), int(pin))
+    return ("LED should be off")
 
 @app.route("/who")
 def hello():
