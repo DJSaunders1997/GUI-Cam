@@ -55,19 +55,6 @@
 });
 </script>
 
-<!-- TODO: Make into a neatly formatted table-->
-<!-- RED/Green LED ON button -->
-<div class='container'>
-	<h3>LEDs on</h3>
-		<a href=# id=red-led-on><button class='btn btn-default'>Red LED on</button></a>
-		<a href=# id=green-led-on><button class='btn btn-default'>Green LED on</button></a>
-</div>
-<!-- RED/Green LED ON button -->
-<div class='container'>
-	<h3>LEDs off</h3>
-		<a href=# id=red-led-off><button class='btn btn-default'>Red LED off</button></a>
-		<a href=# id=green-led-off><button class='btn btn-default'>Green LED off</button></a>
-</div>
 
 
 <html>
@@ -83,6 +70,20 @@
 	<div>Humidity = {{ humidity }}% </div>
 	<div>CPU Temperature = {{ cpu_temp }}°C </div>
 	<img src="{{ url_for('video_feed') }}">
+
+	<!-- TODO: Make into a neatly formatted table-->
+	<!-- RED/Green LED ON button -->
+	<div class='container'>
+		<h3>LEDs on</h3>
+		<a href=# id=red-led-on><button class='btn btn-default'>Red LED on</button></a>
+		<a href=# id=green-led-on><button class='btn btn-default'>Green LED on</button></a>
+	</div>
+	<!-- RED/Green LED ON button -->
+	<div class='container'>
+		<h3>LEDs off</h3>
+		<a href=# id=red-led-off><button class='btn btn-default'>Red LED off</button></a>
+		<a href=# id=green-led-off><button class='btn btn-default'>Green LED off</button></a>
+	</div>
 </body>
 
 <div style="position: absolute; bottom: 5px;">
