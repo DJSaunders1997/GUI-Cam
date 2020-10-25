@@ -1,3 +1,47 @@
+
+<!-- Get jquery files from google -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+        $(function() {
+          $('a#test').bind('click', function() {
+            $.getJSON('/background_process_test',
+                function(data) {
+              //do nothing
+            });
+        return false;
+      });
+    });
+</script>
+
+<!-- JS script to turn on red LED-->
+<script type=text/javascript>
+	$(function() {
+	  $('a#red-led-on').bind('click', function() {
+		$.getJSON('/turn_on_red_led',
+			function(data) {
+		  //do nothing
+		});
+	return false;
+  });
+});
+</script>
+
+<!-- button -->
+<div class='container'>
+<h3>Test</h3>
+    <form>
+        <a href=# id=test><button class='btn btn-default'>Test</button></a>
+    </form>
+</div>
+
+<!-- RED LED ON button -->
+<div class='container'>
+	<h3>Red LED on</h3>
+		<form>
+			<a href=# id=red-led-on><button class='btn btn-default'>Red LED on</button></a>
+		</form>
+	</div>
+
 <html>
 
 <head>

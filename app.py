@@ -47,6 +47,22 @@ def LED_state(state, pin):
     cpu_temp = getCpuTemp()
     return render_template('index.html', temperature=temp_humidity[0], humidity=temp_humidity[1], cpu_temp=cpu_temp) # Pass parameters here  # Pass video object here.
 
+#background process happening without any refreshing
+@app.route('/background_process_test')
+def background_process_test():
+    print ("Hello")
+    return ("nothing")
+
+#turn on LED
+@app.route('/turn_on_red_led')
+def turn_on_red_led():
+    print('function turn_on_red_led has been called')
+    state=1
+    pin=24
+
+    change_led_state(int(state), int(pin))
+    return ("LED should be on")
+
 @app.route("/who")
 def hello():
     return "Created by David Saunders"
