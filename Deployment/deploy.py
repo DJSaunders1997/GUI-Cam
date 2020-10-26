@@ -6,8 +6,11 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/index')
 def index():
+    return render_template('deployindex.html')
 
-    return render_template('deployindex.html') # Pass parameters here  # Pass video object here.
+@app.route('/old')
+def old():
+    return render_template('deployold.html')
 
 @app.route("/who")
 def hello():
