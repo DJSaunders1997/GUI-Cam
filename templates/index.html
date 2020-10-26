@@ -6,8 +6,8 @@
 <!-- JS script to turn on red LED-->
 <script type=text/javascript>
 	$(function() {
-	  $('a#red-led-on').bind('click', function() {
-		$.getJSON('/turn_on_red_led',
+	  $('a#toggle-red-led').bind('click', function() {
+		$.getJSON('/toggle_red_led',
 			function(data) {
 		  //do nothing
 		});
@@ -19,8 +19,8 @@
 <!-- JS script to turn on green LED-->
 <script type=text/javascript>
 	$(function() {
-	  $('a#green-led-on').bind('click', function() {
-		$.getJSON('/turn_on_green_led',
+	  $('a#toggle-green-led').bind('click', function() {
+		$.getJSON('/toggle_green_led',
 			function(data) {
 		  //do nothing
 		});
@@ -74,9 +74,9 @@
 	<!-- TODO: Make into a neatly formatted table-->
 	<!-- RED/Green LED ON button -->
 	<div class='container'>
-		<h3>LEDs on</h3>
-		<a href=# id=red-led-on><button class='btn btn-default'>Red LED on</button></a>
-		<a href=# id=green-led-on><button class='btn btn-default'>Green LED on</button></a>
+		<h3>Toggle LEDs</h3>
+		<a href=# id=toggle-red-led><button class='btn btn-default'>Toggle red LED</button></a>
+		<a href=# id=toggle-green-led><button class='btn btn-default'>Toggle Green LED</button></a>
 	</div>
 	<!-- RED/Green LED ON button -->
 	<div class='container'>

@@ -36,60 +36,24 @@ def video_feed():
 def old():
     return render_template('old.html')
 
-@app.route('/<state>/<pin>')
-def LED_state(state, pin):
-    #23 is green
-    #24 is red
-    change_led_state(int(state), int(pin)) # Function requires ints not strings
-
-    return ('LED state changed')
-
-#background process happening without any refreshing
-@app.route('/background_process_test')
-def background_process_test():
-    print ("Hello")
-    return ("nothing")
-
 ## CONTROLLING LED FUNCTIONS
-#turn on red LED
-@app.route('/turn_on_red_led')
+#turn on red LED if off or turn off if on
+@app.route('/toggle_red_led')
 def turn_on_red_led():
-    print('function turn_on_red_led has been called')
-    state=1
+    print('function toggle_red_led has been called')
     pin=24
 
-    change_led_state(int(state), int(pin))
+    change_led_state(int(pin))
     return ("Red LED should be on")
 
 #turn on green LED
-@app.route('/turn_on_green_led')
+@app.route('/toggle_green_led')
 def turn_on_green_led():
-    print('function turn_on_green_led has been called')
-    state=1
+    print('function toggle_green_led has been called')
     pin=23
 
-    change_led_state(int(state), int(pin))
+    change_led_state(int(pin))
     return ("LED should be on")
-
-#turn off red LED
-@app.route('/turn_off_red_led')
-def turn_off_red_led():
-    print('function turn_off_red_led has been called')
-    state=0
-    pin=24
-
-    change_led_state(int(state), int(pin))
-    return ("Red LED should be off")
-
-#turn of green LED
-@app.route('/turn_off_green_led')
-def turn_off_green_led():
-    print('function turn_off_green_led has been called')
-    state=0
-    pin=23
-
-    change_led_state(int(state), int(pin))
-    return ("LED should be off")
 
 @app.route("/who")
 def hello():
