@@ -36,16 +36,24 @@ def video_feed():
 def old():
     return render_template('old.html')
 
-@app.route('/<state>/<pin>')
-def LED_state(state, pin):
-    #23 is green
-    #24 is red
-    change_led_state(int(state), int(pin)) # Function requires ints not strings
+## CONTROLLING LED FUNCTIONS
+#turn on red LED if off or turn off if on
+@app.route('/toggle_red_led')
+def turn_on_red_led():
+    print('function toggle_red_led has been called')
+    pin=24
 
-    # Same code as index as we don't want to change this
-    temp_humidity = getTempHum()    # Get it from sensor once per load
-    cpu_temp = getCpuTemp()
-    return render_template('index.html', temperature=temp_humidity[0], humidity=temp_humidity[1], cpu_temp=cpu_temp) # Pass parameters here  # Pass video object here.
+    change_led_state(int(pin))
+    return ("Red LED should be on")
+
+#turn on green LED
+@app.route('/toggle_green_led')
+def turn_on_green_led():
+    print('function toggle_green_led has been called')
+    pin=23
+
+    change_led_state(int(pin))
+    return ("LED should be on")
 
 @app.route("/who")
 def hello():

@@ -1,3 +1,62 @@
+
+<!-- Get jquery files from google -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<!-- Got idea and code from https://stackoverflow.com/questions/21566649/flask-button-run-python-without-refreshing-page-->
+<!-- JS script to turn on red LED-->
+<script type=text/javascript>
+	$(function() {
+	  $('a#toggle-red-led').bind('click', function() {
+		$.getJSON('/toggle_red_led',
+			function(data) {
+		  //do nothing
+		});
+	return false;
+  });
+});
+</script>
+
+<!-- JS script to turn on green LED-->
+<script type=text/javascript>
+	$(function() {
+	  $('a#toggle-green-led').bind('click', function() {
+		$.getJSON('/toggle_green_led',
+			function(data) {
+		  //do nothing
+		});
+	return false;
+  });
+});
+</script>
+
+<!-- JS script to turn off red LED-->
+<script type=text/javascript>
+	$(function() {
+	  $('a#red-led-off').bind('click', function() {
+		$.getJSON('/turn_off_red_led',
+			function(data) {
+		  //do nothing
+		});
+	return false;
+  });
+});
+</script>
+
+<!-- JS script to turn off green LED-->
+<script type=text/javascript>
+	$(function() {
+	  $('a#green-led-off').bind('click', function() {
+		$.getJSON('/turn_off_green_led',
+			function(data) {
+		  //do nothing
+		});
+	return false;
+  });
+});
+</script>
+
+
+
 <html>
 
 <head>
@@ -10,16 +69,21 @@
 	<div>Temperature = {{ temperature }}°C </div>
 	<div>Humidity = {{ humidity }}% </div>
 	<div>CPU Temperature = {{ cpu_temp }}°C </div>
-	<hr>
-	<a href="{{ url_for('LED_state', state=1, pin=23) }}">Green LED ON</a>
-	<a href="{{ url_for('LED_state', state=0, pin=23) }}">Green LED OFF</a>
-	<a href="{{ url_for('LED_state', state=1, pin=24) }}">Red LED ON</a>
-	<a href="{{ url_for('LED_state', state=0, pin=24) }}">Red LED OFF</a>
-	<hr>
+
+	<div class='container'>
+		<h3>Toggle LEDs</h3>
+		<a href=# id=toggle-red-led><button class='btn btn-default'>Toggle red LED</button></a>
+		<a href=# id=toggle-green-led><button class='btn btn-default'>Toggle Green LED</button></a>
+	</div>
+
 	<img src="{{ url_for('video_feed') }}">
+
+	<!-- TODO: Make into a neatly formatted table-->
+	<!-- RED/Green LED ON button -->
+
 </body>
 
-<div style="position: absolute; bottom: 5px;">
+<div">
 	<hr>
 	A Flask website by David Saunders
 	<hr>

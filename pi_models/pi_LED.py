@@ -23,9 +23,9 @@ def LED_off(led_pin_num):
         print('Red LED off!')
         GPIO.output(24,GPIO.LOW)
 
-def change_led_state(state, led_pin_num):
-    if (state == 1):
+def change_led_state(led_pin_num):
+
+    if (GPIO.input(led_pin_num)==0):    # returns 1 if pin state is HIGH 
         LED_on(led_pin_num)
     else:
         LED_off(led_pin_num)
-
