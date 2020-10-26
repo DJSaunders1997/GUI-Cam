@@ -69,24 +69,21 @@
 	<div>Temperature = {{ temperature }}°C </div>
 	<div>Humidity = {{ humidity }}% </div>
 	<div>CPU Temperature = {{ cpu_temp }}°C </div>
-	<img src="{{ url_for('video_feed') }}">
 
-	<!-- TODO: Make into a neatly formatted table-->
-	<!-- RED/Green LED ON button -->
 	<div class='container'>
 		<h3>Toggle LEDs</h3>
 		<a href=# id=toggle-red-led><button class='btn btn-default'>Toggle red LED</button></a>
 		<a href=# id=toggle-green-led><button class='btn btn-default'>Toggle Green LED</button></a>
 	</div>
+
+	<img src="{{ url_for('video_feed') }}">
+
+	<!-- TODO: Make into a neatly formatted table-->
 	<!-- RED/Green LED ON button -->
-	<div class='container'>
-		<h3>LEDs off</h3>
-		<a href=# id=red-led-off><button class='btn btn-default'>Red LED off</button></a>
-		<a href=# id=green-led-off><button class='btn btn-default'>Green LED off</button></a>
-	</div>
+
 </body>
 
-<div style="position: absolute; bottom: 5px;">
+<div">
 	<hr>
 	A Flask website by David Saunders
 	<hr>
