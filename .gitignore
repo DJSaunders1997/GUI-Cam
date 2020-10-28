@@ -1,2 +1,7 @@
 /__pycache__
 /pi_models/__pycache__
+pi_app/pi_models/pi_camera.pyc
+pi_app/pi_models/__init__.pyc
+pi_app/pi_models/pi_cpu_temp.pyc
+pi_app/pi_models/temp_humid_sensor.pyc
+pi_app/pi_models/pi_LED.pyc

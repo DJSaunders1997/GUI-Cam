@@ -64,7 +64,7 @@ def get_temp_humid():
     cpu_temp = getCpuTemp()
     result = [temp_humid[0], temp_humid[1], cpu_temp]
 
-    return (result)
+    return (str(result)) # Can only return a string or a response.
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
