@@ -1,7 +1,7 @@
 # From https://pimylifeup.com/raspberry-pi-humidity-sensor-dht22/
 
-# Set positive sensor pin to pin 7
-# Set data pin to 4
+# Set positive sensor pin to pin 1
+# Set data pin to 7 (GPIO4)
 # Set negative pin to GND, 6
 
 import Adafruit_DHT
