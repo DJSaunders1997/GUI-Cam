@@ -10,12 +10,11 @@
 -->
 
 <!-- Got idea and code from https://stackoverflow.com/questions/21566649/flask-button-run-python-without-refreshing-page-->
-<!-- JS script to toggle red LED-->
+<!-- JS script to turn on red LED-->
 <script type=text/javascript>
 	$(function() {
 	  $('a#toggle-red-led').bind('click', function() {
-		$.getJSON('192.168.68.135:5000/toggle_red_led',
-			//Call function from PI website
+		$.getJSON('/toggle_red_led',
 			function(data) {
 		  //do nothing
 		});
@@ -24,12 +23,11 @@
 });
 </script>
 
-<!-- JS script to toggle green LED-->
+<!-- JS script to turn on green LED-->
 <script type=text/javascript>
 	$(function() {
 	  $('a#toggle-green-led').bind('click', function() {
-		$.getJSON('192.168.68.135:5000/toggle_green_led',
-			//Call function from PI website
+		$.getJSON('/toggle_green_led',
 			function(data) {
 		  //do nothing
 		});
