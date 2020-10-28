@@ -5,7 +5,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(23, GPIO.OUT)  # Green LED connected to pin 23 and shared GND
 GPIO.setup(24, GPIO.OUT)  # Red LED connected to pin 24 and shared GND
-
+                            # GND chosen is pin 25
 
 def LED_on(led_pin_num):
     if (led_pin_num==23):
