@@ -3,9 +3,9 @@ import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-GPIO.setup(23, GPIO.OUT)  # Green LED connected to pin 23 and shared GND
-GPIO.setup(24, GPIO.OUT)  # Red LED connected to pin 24 and shared GND
-                            # GND chosen is pin 25
+GPIO.setup(23, GPIO.OUT)  # Green LED connected to GPIO 23 and ACTUAL PIN 16
+GPIO.setup(24, GPIO.OUT)  # Red LED connected to pin 24 and ACTUAL PIN 18
+                            # GND chosen is pin 20
 
 def LED_on(led_pin_num):
     if (led_pin_num==23):
