@@ -2,7 +2,7 @@ from flask import Flask, render_template, Response, url_for
 import requests
 
 app = Flask(__name__)
-piIP = 'http://81.105.156.15:6969/' # Needs the http so requests knows how to connect
+piIP = 'http://81.105.156.15:6969' # Needs the http so requests knows how to connect
                                     # Must be pi external IP (obviously)
 
 @app.route('/')
