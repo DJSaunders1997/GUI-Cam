@@ -18,13 +18,13 @@ def old():
 @app.route('/toggle_red_led')
 def toggle_red_led():
     x = requests.get(f'{piIP}/toggle_red_led')
-    return (x)
+    return (str(x))
 
 #turn on red LED
 @app.route('/toggle_green_led')
 def toggle_green_led():
     x = requests.get(f'{piIP}/toggle_green_led')
-    return (x)
+    return (str(x))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
