@@ -37,7 +37,7 @@ def old():
     return render_template('old.html')
 
 ## CONTROLLING LED FUNCTIONS
-#turn on red LED if off or turn off if on
+#toggle red LED
 @app.route('/toggle_red_led')
 def turn_on_red_led():
     print('function toggle_red_led has been called')
@@ -46,7 +46,7 @@ def turn_on_red_led():
     change_led_state(int(pin))
     return ("Red LED should be on")
 
-#turn on green LED
+#toggle green LED
 @app.route('/toggle_green_led')
 def turn_on_green_led():
     print('function toggle_green_led has been called')
@@ -55,9 +55,16 @@ def turn_on_green_led():
     change_led_state(int(pin))
     return ("LED should be on")
 
-@app.route("/who")
-def hello():
-    return "Created by David Saunders"
+#toggle green LED
+@app.route('/get_temp_humid_cpu')
+def get_temp_humid():
+    print('function get_temp_humid has been called')
+    
+    temp_humid = getTempHum()   #temp_humid[0] = temp, temp_humid[1] = humidity.
+    cpu_temp = getCpuTemp()
+    result = [temp_humid[0], temp_humid[1], cpu_temp]
+
+    return (result)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
